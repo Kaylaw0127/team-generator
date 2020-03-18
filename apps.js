@@ -145,4 +145,36 @@ function engineer() {
         })
 }
 
+function intern() {
+    console.log(`Let's input your Intern!`)
+    inquirer
+        .prompt([
+            {
+                type: "input",
+                message: 'What\'s your Intern\'s name?',
+                name: 'internName'
+            },
+            {
+                type: "input",
+                message: 'What\'s your Intern\'s ID number?',
+                name: 'internId'
+            },
+            {
+                type: "input",
+                message: 'What\'s your Intern\'s email?',
+                name: 'internEmail'
+            },
+            {
+                type: "input",
+                message: 'Where does your Intern attend school?',
+                name: 'internSchool'
+            }
+        ]).then((answers) => {
+            const currentIntern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool, 'Intern')
+
+            employees.push(currentIntern)
+            
+            anotherEmployee()
+        })
+}
 addEmployee()
