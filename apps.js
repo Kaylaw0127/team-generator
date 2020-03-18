@@ -114,6 +114,35 @@ function manager() {
         })
 }
 
+function engineer() {
+    inquirer
+        .prompt([
+            {
+                type: "input",
+                message: `What's your Engineer's name`,
+                name: `engineerName`
+            },
+            {
+                type: "input",
+                message: `What is your Engineer's ID number?`,
+                name: `engineerId`
+            },
+            {
+                type: "input",
+                message: `What is your Engineer's email?`,
+                name: `engineerEmail`
+            },
+            {
+                type: "input",
+                message: `What is your Engineer's Github Username?`,
+                name: `engineerGithub`
+            }
+        ]).then((answers) => {
+            const currentEngineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub, `Engineer`)
 
+            employees.push(currentEngineer)
+            anotherEmployee()
+        })
+}
 
 addEmployee()
