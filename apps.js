@@ -50,39 +50,39 @@ function addEmployee() {
         })
     }
 
-// function anotherEmployee() {
-//     inquirer
-//         .prompt({
-//             type: "list",
-//             message: 'Would you like to add another employee?',
-//             choices: ['yes', 'no'],
-//             name: 'anotherEmployee'
-//         }).then((answer) => {
-//             if (JSON.stringify(answer) == '{"initialize":"yes"}') {
-//                 inquirer
-//                     .prompt({
-//                         type: "list",
-//                         message: 'What type of Employee would you like to add?',
-//                         choices: ['Manager', 'Engineer', 'Intern'],
-//                         name: 'employeeType'
-//                     }).then((employeeType) => {
-//                         switch (JSON.stringify(employeeType)) {
-//                             case '{"employeeType":"Manager"}':
-//                                 manager()
-//                                 break
-//                             case '{"employeeType":"Engineer"}':
-//                                 engineer()
-//                                 break
-//                             case '{"employeeType":"Intern"}':
-//                                 intern()
-//                                 break
-//                             default:
-//                                 break
-//                         }
-//                     })
-//             } else { render(employees) }
-//         })
-// }
+function anotherEmployee() {
+    inquirer
+        .prompt({
+            type: "list",
+            message: 'Would you like to add another employee?',
+            choices: ['yes', 'no'],
+            name: 'anotherEmployee'
+        }).then((answer) => {
+            if (JSON.stringify(answer) == '{"initialize":"yes"}') {
+                inquirer
+                    .prompt({
+                        type: "list",
+                        message: 'What type of Employee would you like to add?',
+                        choices: ['Manager', 'Engineer', 'Intern'],
+                        name: 'employeeType'
+                    }).then((employeeType) => {
+                        switch (JSON.stringify(employeeType)) {
+                            case '{"employeeType":"Manager"}':
+                                manager()
+                                break
+                            case '{"employeeType":"Engineer"}':
+                                engineer()
+                                break
+                            case '{"employeeType":"Intern"}':
+                                intern()
+                                break
+                            default:
+                                break
+                        }
+                    })
+            } else { render(employees) }
+        })
+}
 
 function manager() {
     inquirer
@@ -119,26 +119,26 @@ function engineer() {
         .prompt([
             {
                 type: "input",
-                message: `What's your Engineer's name`,
-                name: `engineerName`
+                message: 'What\'s your Engineer\'s name',
+                name: 'engineerName'
             },
             {
                 type: "input",
-                message: `What is your Engineer's ID number?`,
-                name: `engineerId`
+                message: 'What\'s your Engineer\'s ID number?',
+                name: 'engineerId'
             },
             {
                 type: "input",
-                message: `What is your Engineer's email?`,
-                name: `engineerEmail`
+                message: 'What\'s your Engineer\'s email?',
+                name: 'engineerEmail'
             },
             {
                 type: "input",
-                message: `What is your Engineer's Github Username?`,
-                name: `engineerGithub`
+                message: 'What\'s your Engineer\'s Github Username?',
+                name: 'engineerGithub'
             }
         ]).then((answers) => {
-            const currentEngineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub, `Engineer`)
+            const currentEngineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub, 'Engineer')
 
             employees.push(currentEngineer)
             anotherEmployee()
