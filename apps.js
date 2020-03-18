@@ -146,7 +146,7 @@ function engineer() {
 }
 
 function intern() {
-    console.log(`Let's input your Intern!`)
+
     inquirer
         .prompt([
             {
